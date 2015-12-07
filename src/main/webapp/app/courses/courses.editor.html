@@ -1,0 +1,55 @@
+<div class="toolbar" layout="row" layout-align="start center">
+    <span translate="TEACHER.NEW"></span>
+</div>
+<!-- / CONTENT TOOLBAR -->
+
+<!-- CONTENT -->
+<md-content class="content" ms-scroll>
+    <div>
+        <form name="courseForm" ng-submit="vm.save(vm.course)">
+            <formly-form model="vm.course" fields="vm.formFields">
+                <div layout="row">
+                    <md-button type="button" ng-click="vm.showBookDialog($event)"
+                               class="md-raised md-accent"
+                               aria-label="{{ COURSES.ADD_BOOK |translate }}">
+                        <span translate="COURSES.ADD_BOOK"></span>
+                    </md-button>
+                </div>
+                <div layout="row" layout-align="end">
+                    <md-button type="submit"
+                               class="md-raised md-primary"
+                               aria-label="{{ COMMONS.SAVE |translate }}">
+                        <span translate="COMMONS.SAVE"></span>
+                    </md-button>
+                </div>
+            </formly-form>
+        </form>
+
+        <div class='md-padding' layout="row" layout-wrap>
+            <md-card ng-repeat="book in vm.course.books track by $index">
+                <md-card-content>
+                    <h2>{{book.title}}</h2>
+                    <p>{{ book.description}} </p>
+                </md-card-content>
+                <div class="md-actions md-layout-row layout-align-end-center">
+                    <md-button type="button" ng-show="book.$id" ng-click="vm.removeBook(book, vm.id, vm.course.books)"
+                        class="md-raised md-warn"
+                        aria-label="{{ COMMONS.DELETE |translate }}">
+                        <span translate="COMMONS.DELETE"></span>
+                    </md-button>
+                    <md-button type="button" ng-show="!book.$id" ng-click="vm.removeBookFromCollection(book, vm.course.books)"
+                        class="md-raised md-warn"
+                        aria-label="{{ COMMONS.DELETE |translate }}">
+                        <span translate="COMMONS.DELETE"></span>
+                    </md-button>
+                    <md-button type="button" ng-click="vm.showBookDialog($event, book, book.$id)"
+                        class="md-raised md-accent"
+                        aria-label="{{ COMMONS.EDIT |translate }}">
+                        <span translate="COMMONS.EDIT"></span>
+                    </md-button>
+                </div>
+            </md-card>
+        </div>
+
+    </div>
+</md-content>

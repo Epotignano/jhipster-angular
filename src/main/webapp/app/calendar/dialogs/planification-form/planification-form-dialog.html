@@ -1,0 +1,69 @@
+﻿<md-dialog class="event-form-dialog" aria-label="New Message">
+  <form>
+    <md-toolbar class="md-green-A700-bg">
+      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <span class="title" translate="CALENDAR.ADD_PLANIFICATION"></span>
+        <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close dialog" translate
+                   translate-attr-aria-label="CALENDAR.CLOSE_DIALOG">
+          <md-icon md-font-icon="icon-close"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content ms-scroll>
+      <ng-form name="planificationForm">
+        
+          <div layout="row" class="date-row">
+              <md-datepicker ng-model="vm.calendarEvent.start" md-placeholder="から"></md-datepicker>
+          </div>
+          <div layout="row" class="date-row">
+              <md-datepicker ng-model="vm.calendarEvent.end" md-placeholder="まで"></md-datepicker>
+          </div>
+
+          <md-input-container>
+              <label translate="COMMONS.COURSES"></label>
+              <md-select ng-model="vm.calendarEvent.course">
+                  <md-option ng-value="opt.id" ng-repeat="opt in vm.studentCourses">{{ opt.name }}</md-option>
+              </md-select>
+          </md-input-container>
+
+
+        <md-input-container>
+          <label translate="CALENDAR.BOOK_NAME"></label>
+          <md-select ng-model="vm.calendarEvent.book">
+            <md-option ng-value="opt.title" ng-repeat="opt in vm.selectableBooks">{{ opt.title }}</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label translate="CALENDAR.SECTION"></label>
+          <md-select ng-model="vm.calendarEvent.section">
+            <md-option ng-value="opt.name" ng-repeat="opt in vm.homeworkSelectableSections">{{ opt.name }}</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container><label translate="CALENDAR.FROM"></label><input ng-model="vm.calendarEvent.from" type="text">
+        </md-input-container>
+        <md-input-container><label translate="CALENDAR.TO"></label> <input ng-model="vm.calendarEvent.to" type="text">
+        </md-input-container>
+
+        <md-input-container flex class="textarea-container">
+          <label translate="CALENDAR.NOTES"></label>
+          <textarea ng-model="vm.calendarEvent.notes" md-maxlength="250"></textarea>
+        </md-input-container>
+      </ng-form>
+
+    </md-dialog-content>
+
+    <div class="md-actions md-warn mail-form-actions" layout="row" layout-align="space-between center">
+      <md-button ng-click="vm.saveEvent()" class="save-button md-primary md-raised" aria-label="SAVE"
+                 translate="COMMONS.SAVE"
+                 translate-attr-aria-label="COMMONS.SAVE">
+        SAVE
+      </md-button>
+
+      <md-button class="md-icon-button md-warn" aria-label="Delete"  ng-click="vm.deleteEvent()" translate-attr-aria-label="CALENDAR.DELETE">
+        <md-icon md-font-icon="icon-delete"></md-icon>
+        <md-tooltip><span translate="COMMONS.DELETE">Delete</span></md-tooltip>
+      </md-button>
+    </div>
+  </form>
+</md-dialog>

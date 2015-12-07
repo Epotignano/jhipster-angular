@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "Courses",
+    "packageName": "cl.onesnap.courses",
+    "packageFolder": "cl/onesnap/courses",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "gulp",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "5918023a0f8b67971e5da75ec32698ac74c189cc",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}
