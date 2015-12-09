@@ -15,7 +15,7 @@ var paths = exports.paths = {
   app: 'src/main/webapp/',
   dist: 'src/main/webapp/dist/',
   test: 'src/test/javascript/spec/',
-  tmp: '.tmp/',
+  tmp: 'src/main/webapp/.tmp/',
   importPath: 'src/main/webapp/bower_components',
   scss: 'src/main/scss/',
   port: 9000,

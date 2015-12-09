@@ -48,7 +48,7 @@ function browserSyncInit(baseDir, browser) {
 browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
-
+/*
 gulp.task('serve', ['watch'], function() {
     runSequence('inject', 'ngconstant:dev', 'styles', function () {
         var baseUri = 'http://localhost:' + conf.paths.apiPort;
@@ -109,8 +109,11 @@ gulp.task('serve', ['watch'], function() {
             }
         });
     });
-});
+});*/
 
+gulp.task('serve', ['watch'], function () {
+  browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.app]);
+});
 
 
 gulp.task('serve:dist', ['build'], function () {
