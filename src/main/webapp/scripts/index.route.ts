@@ -17,18 +17,18 @@ module smileMotivationz {
           url: '/app',
           views   : {
             'main@'         : {
-              templateUrl: 'app/core/layouts/default.html'
+              templateUrl: 'scripts/core/layouts/default.html'
             },
             'toolbar@app': {
-              templateUrl: 'app/toolbar/toolbar.html',
+              templateUrl: 'scripts/toolbar/toolbar.html',
               controller : 'ToolbarController as vm'
             },
             'navigation@app': {
-              templateUrl: 'app/sidenav/navigation/navigation.html',
+              templateUrl: 'scripts/sidenav/navigation/navigation.html',
               controller : 'NavigationController as vm'
             },
             'quickPanel@app': {
-              templateUrl: 'app/sidenav/quick-panel/quick-panel.html',
+              templateUrl: 'scripts/sidenav/quick-panel/quick-panel.html',
               controller : 'QuickPanelController as vm'
             }
           }
@@ -38,7 +38,7 @@ module smileMotivationz {
       $urlRouterProvider.otherwise('/app/dashboard');
 
       // commons translations
-      $translatePartialLoaderProvider.addPart('app/commons');
+      $translatePartialLoaderProvider.addPart('scripts/commons');
 
     }
 

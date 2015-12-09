@@ -16,7 +16,7 @@ module Auth {
         url: '/access',
         views: {
           'main@'                       : {
-            templateUrl: 'app/core/layouts/basic.html'
+            templateUrl: 'scripts/core/layouts/basic.html'
           }
         }
       });
@@ -26,12 +26,12 @@ module Auth {
         url  : '/login',
         views: {
           'content': {
-            templateUrl: 'app/auth/auth.login.html'
+            templateUrl: 'scripts/auth/auth.login.html'
           }
         }
       });
 
-      $translatePartialLoaderProvider.addPart('app/auth');
+      $translatePartialLoaderProvider.addPart('scripts/auth');
 
     }
 

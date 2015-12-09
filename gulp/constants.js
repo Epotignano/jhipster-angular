@@ -16,7 +16,7 @@ var parseVersionFromPomXml = function() {
 
 gulp.task('ngconstant:dev', function() {
     return ngConstant({
-        dest: 'app.constants.js',
+        dest: 'index.constants.js',
         name: 'coursesApp',
         deps:   false,
         noFile: true,
@@ -32,7 +32,7 @@ gulp.task('ngconstant:dev', function() {
 
 gulp.task('ngconstant:prod', function() {
     return ngConstant({
-        dest: 'app.constants.js',
+        dest: 'index.constants.js',
         name: 'coursesApp',
         deps:   false,
         noFile: true,

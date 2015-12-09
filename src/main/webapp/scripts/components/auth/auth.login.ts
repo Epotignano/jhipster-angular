@@ -11,7 +11,7 @@ module app.components.auth {
     var directive = <ng.IDirective> {
       restrict: 'E',
       scope: {},
-      templateUrl: 'app/components/auth/auth.login.html',
+      templateUrl: 'scripts/components/auth/auth.login.html',
       controller: 'LoginController',
       controllerAs: 'vm',
       bindToController: true

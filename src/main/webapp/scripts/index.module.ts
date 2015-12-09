@@ -10,7 +10,7 @@
 module smileMotivationz {
   'use strict';
 
-  angular.module('smz', [
+  angular.module('coursesApp', [
       // core
       'app.core',
       // formly
