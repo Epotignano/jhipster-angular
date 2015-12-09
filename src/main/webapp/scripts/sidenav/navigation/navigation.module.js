@@ -9,7 +9,7 @@
     /** @ngInject */
     function config($translatePartialLoaderProvider)
     {
-        $translatePartialLoaderProvider.addPart('app/sidenav/navigation');
+        $translatePartialLoaderProvider.addPart('scripts/sidenav/navigation');
     }
 
 })();
