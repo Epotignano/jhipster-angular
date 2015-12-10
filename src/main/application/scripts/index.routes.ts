@@ -1,7 +1,6 @@
-module smileMotivationz {
-  'use strict';
-
-  export class RouterConfig {
+module Onesnap {
+	
+	export class RouterConfig {
     /** @ngInject */
     constructor($stateProvider: ng.ui.IStateProvider,
                 $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -43,4 +42,6 @@ module smileMotivationz {
     }
 
   }
+	
+	
 }
