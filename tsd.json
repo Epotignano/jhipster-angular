@@ -2,8 +2,8 @@
   "version": "v4",
   "repo": "borisyankov/DefinitelyTyped",
   "ref": "1.4.1",
-  "path": "src/main/.tmp/typings",
-  "bundle": "src/main/.tmp/typings/tsd.d.ts",
+  "path": "src/main/webapp/typings",
+  "bundle": "src/main/webapp/typings/tsd.d.ts",
   "installed": {
     "rx/rx.d.ts": {
       "commit": "2d84e48e3b4ecb47b8c3f1a6c769e9293bce1196"
