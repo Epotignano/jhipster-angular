@@ -16,15 +16,11 @@ module Onesnap {
             },
             'toolbar@app': {
               templateUrl: 'scripts/toolbar/toolbar.html',
-              //controller : 'ToolbarController as vm'
+              controller : 'ToolbarController as vm'
             },
             'navigation@app': {
               templateUrl: 'scripts/sidenav/navigation/navigation.html',
-              //controller : 'NavigationController as vm'
-            },
-            'quickPanel@app': {
-              templateUrl: 'app/sidenav/quick-panel/quick-panel.html',
-              //controller : 'QuickPanelController as vm'
+              controller : 'NavigationController as vm'
             }
           }
         });
