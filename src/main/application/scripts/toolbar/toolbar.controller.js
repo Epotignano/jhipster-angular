@@ -7,8 +7,7 @@
         .controller('ToolbarController', ToolbarController);
 
     /** @ngInject */
-    function ToolbarController($rootScope, $mdSidenav, msNavFoldService, $translate, $mdToast,
-                               authTokenService, authService)
+    function ToolbarController($rootScope, $mdSidenav, msNavFoldService, $translate, $mdToast)
     {
         var vm = this;
 
@@ -17,7 +16,6 @@
             search: ''
         };
 
-        vm.userEmail = authTokenService.getUserEmail();
 
         vm.userStatusOptions = [
             {
@@ -114,7 +112,7 @@
          */
         function logout()
         {
-          authService.logOut();
+          //authService.logOut();
         }
 
         /**
