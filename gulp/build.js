@@ -10,8 +10,8 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('partials', function () {
   return gulp.src([
-    path.join(conf.paths.src, '/app/**/*.html'),
-    path.join(conf.paths.tmp, '/serve/app/**/*.html')
+    path.join(conf.paths.app, '/scripts/**/*.html'),
+    path.join(conf.paths.tmp, '/serve/scripts/**/*.html')
   ])
     .pipe($.minifyHtml({
       empty: true,
@@ -21,7 +21,7 @@ gulp.task('partials', function () {
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
       module: 'smz',
-      root: 'app'
+      root: 'scripts'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
@@ -38,6 +38,8 @@ gulp.task('html', ['inject', 'partials'], function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
   var assets;
+
+console.log($.useref.assets());
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
@@ -80,8 +82,8 @@ gulp.task('other', function () {
   });
 
   return gulp.src([
-    path.join(conf.paths.src, '/**/*'),
-    path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss,ts}')
+    path.join(conf.paths.app, '/**/*'),
+    path.join('!' + conf.paths.app, '/**/*.{html,css,js,scss,ts}')
   ])
     .pipe(fileFilter)
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
