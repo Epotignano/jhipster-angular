@@ -17,13 +17,15 @@ gulp.task('styles', function () {
   };
 
   var injectFiles = gulp.src([
-    path.join(conf.paths.app, 'scripts/**/*.scss'),
-    path.join('!' + conf.paths.app, 'scripts/index.scss')
+    path.join(conf.paths.app, '/scripts/**/*.scss'),
+    path.join('!' + conf.paths.app, '/scripts/index.scss')
   ], { read: false });
 
   var injectOptions = {
     transform: function(filePath) {
-      filePath = filePath.replace(conf.paths.app + 'scripts/', '');
+      console.log(filePath);
+      console.log(filePath.replace(conf.paths.app + '/scripts/', ''))
+      filePath = filePath.replace(conf.paths.app + '/scripts/', '');
       return '@import "' + filePath + '";';
     },
     starttag: '// injector',
@@ -31,9 +33,10 @@ gulp.task('styles', function () {
     addRootSlash: false
   };
 
-
+console.log(path.join(conf.paths.app, '/scripts/index.scss'));
+  
   return gulp.src([
-    path.join(conf.paths.app, 'scripts/index.scss')
+    path.join(conf.paths.app, '/index.scss')
   ])
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
@@ -41,6 +44,6 @@ gulp.task('styles', function () {
     .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
     .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(path.join(conf.paths.tmp, 'serve/scripts/')))
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/scripts/')))
     .pipe(browserSync.reload({ stream: true }));
 });
