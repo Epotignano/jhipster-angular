@@ -3,6 +3,13 @@
 
 module Onesnap{
 	'use strict';
-	angular.module('coursesApp', ['app.core', 'dashboard'])
+	angular.module('coursesApp', ['app.core',
+	// navigation
+	'app.navigation',
+	// toolbar
+	'app.toolbar', 
+	//template components
+	'app.components',
+	'dashboard'])
 		.config(RouterConfig)
 }

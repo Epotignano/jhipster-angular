@@ -23,8 +23,6 @@ gulp.task('styles', function () {
 
   var injectOptions = {
     transform: function(filePath) {
-      console.log(filePath);
-      console.log(filePath.replace(conf.paths.app + '/scripts/', ''))
       filePath = filePath.replace(conf.paths.app + '/scripts/', '');
       return '@import "' + filePath + '";';
     },
@@ -33,10 +31,9 @@ gulp.task('styles', function () {
     addRootSlash: false
   };
 
-console.log(path.join(conf.paths.app, '/scripts/index.scss'));
-  
+
   return gulp.src([
-    path.join(conf.paths.app, '/index.scss')
+    path.join(conf.paths.app, '/scripts/index.scss')
   ])
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
@@ -44,6 +41,6 @@ console.log(path.join(conf.paths.app, '/scripts/index.scss'));
     .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
     .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/scripts/')))
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')))
     .pipe(browserSync.reload({ stream: true }));
 });

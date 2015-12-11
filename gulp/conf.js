@@ -12,12 +12,12 @@ var gutil = require('gulp-util');
  *  The main paths of your project handle these with care
  */
 var paths = exports.paths = {
-  app: 'src/main/application/',
-  dist: 'src/main/webapp/dist/',
-  test: 'src/test/javascript/spec/',
-  tmp: 'src/main/webapp/',
+  app: 'src/main/application',
+  dist: 'src/main/webapp/dist',
+  test: 'src/test/javascript/spec',
+  tmp: 'src/main/webapp',
   importPath: 'src/main/application/bower_components',
-  scss: 'src/main/scss/',
+  scss: 'src/main/scss',
   port: 9000,
   apiPort: 8080,
   liveReloadPort: 35729

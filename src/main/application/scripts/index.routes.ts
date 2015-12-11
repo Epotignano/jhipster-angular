@@ -6,38 +6,31 @@ module Onesnap {
   export class RouterConfig {
     /** @ngInject */
     constructor($stateProvider: ng.ui.IStateProvider,
-                $urlRouterProvider: ng.ui.IUrlRouterProvider,
-                $translatePartialLoaderProvider) {
+                $urlRouterProvider: ng.ui.IUrlRouterProvider) {
     $stateProvider
         .state('app', {
-          abstract: true,
-          resolve: {
-            servicesDependencies : function(toasterService){
-              return true;
-            } ,
-          },
           url: '/app',
           views   : {
             'main@'         : {
-              templateUrl: 'core/layouts/default.hjjjjjjjtml'
+              templateUrl: 'scripts/core/layouts/default.html'
             },
-            /*'toolbar@app': {
-              templateUrl: 'toolbar/toolbar.html',
+            'toolbar@app': {
+              templateUrl: 'scripts/toolbar/toolbar.html',
               //controller : 'ToolbarController as vm'
             },
             'navigation@app': {
-              templateUrl: 'app/sidenav/navigation/navigation.html',
+              templateUrl: 'scripts/sidenav/navigation/navigation.html',
               //controller : 'NavigationController as vm'
             },
             'quickPanel@app': {
               templateUrl: 'app/sidenav/quick-panel/quick-panel.html',
               //controller : 'QuickPanelController as vm'
-            }*/
+            }
           }
         });
 
 
-      $urlRouterProvider.otherwise('/app/dashboard');
+      $urlRouterProvider.otherwise('/app');
 
       // commons translations
 

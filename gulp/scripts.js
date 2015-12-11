@@ -14,7 +14,7 @@ var $ = require('gulp-load-plugins')();
   });
 
   gulp.task('scripts', ['tsd:install'], function () {
-  return gulp.src(path.join(conf.paths.app, 'scripts/**/*.ts'))
+  return gulp.src(path.join(conf.paths.app, '/scripts/**/*.ts'))
     .pipe($.sourcemaps.init())
     .pipe($.tslint())
     .pipe($.tslint.report('prose', { emitError: false }))
