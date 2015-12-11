@@ -1,6 +1,9 @@
+/// <reference path="../../.tmp/typings/tsd.d.ts" />
+
 module Onesnap {
-	
-	export class RouterConfig {
+  'use strict';
+
+  export class RouterConfig {
     /** @ngInject */
     constructor($stateProvider: ng.ui.IStateProvider,
                 $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -16,20 +19,20 @@ module Onesnap {
           url: '/app',
           views   : {
             'main@'         : {
-              templateUrl: 'scripts/core/layouts/default.html'
+              templateUrl: 'core/layouts/default.hjjjjjjjtml'
             },
-            'toolbar@app': {
-              templateUrl: 'scripts/toolbar/toolbar.html',
-              controller : 'ToolbarController as vm'
+            /*'toolbar@app': {
+              templateUrl: 'toolbar/toolbar.html',
+              //controller : 'ToolbarController as vm'
             },
             'navigation@app': {
-              templateUrl: 'scripts/sidenav/navigation/navigation.html',
-              controller : 'NavigationController as vm'
+              templateUrl: 'app/sidenav/navigation/navigation.html',
+              //controller : 'NavigationController as vm'
             },
             'quickPanel@app': {
-              templateUrl: 'scripts/sidenav/quick-panel/quick-panel.html',
-              controller : 'QuickPanelController as vm'
-            }
+              templateUrl: 'app/sidenav/quick-panel/quick-panel.html',
+              //controller : 'QuickPanelController as vm'
+            }*/
           }
         });
 
@@ -37,11 +40,8 @@ module Onesnap {
       $urlRouterProvider.otherwise('/app/dashboard');
 
       // commons translations
-      $translatePartialLoaderProvider.addPart('scripts/commons');
 
     }
 
   }
-	
-	
 }
