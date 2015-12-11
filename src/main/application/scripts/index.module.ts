@@ -4,4 +4,5 @@
 module Onesnap{
 	'use strict';
 	angular.module('coursesApp', ['app.core'])
+		.config(RouterConfig)
 }
