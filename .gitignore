@@ -3,7 +3,8 @@
 ######################
 /src/main/webapp/assets/styles/main.css
 /src/main/webapp/dist
-
+/src/main/application/bower_components/**
+/node_modules/**
 ######################
 # Node
 ######################

@@ -1,5 +1,6 @@
 /// <reference path="../../.tmp/typings/tsd.d.ts" />
 /// <reference path="./index.routes.ts" />
+/// <reference path="./index.http.config.ts" />
 
 module Onesnap{
 	'use strict';
@@ -10,6 +11,9 @@ module Onesnap{
 	'app.toolbar', 
 	//template components
 	'app.components',
+	'auth',
+	'settings',
 	'dashboard'])
 		.config(RouterConfig)
+		.config(httpConfig)
 }

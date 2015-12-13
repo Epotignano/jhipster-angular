@@ -14,7 +14,7 @@ var util = require('util');
 
 var proxyMiddleware = require('http-proxy-middleware');
 
-function browserSyncInit(baseDir, browser) {
+function browserSyncInit(baseDir, browser, proxies) {
   browser = browser === undefined ? 'default' : browser;
 
   var routes = null;
@@ -26,7 +26,8 @@ function browserSyncInit(baseDir, browser) {
 
   var server = {
     baseDir: baseDir,
-    routes: routes
+    routes: routes,
+    middleware: proxies
   };
 
   /*
@@ -40,6 +41,7 @@ function browserSyncInit(baseDir, browser) {
 
   browserSync.instance = browserSync.init({
     startPath: '/',
+    port: 9000,
     server: server,
     browser: browser
   });
@@ -111,12 +113,58 @@ gulp.task('serve', ['watch'], function() {
     });
 });*/
 
-gulp.task('serve', ['watch'], function () {
-  browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.app]);
+gulp.task('serve', ['watch', 'ngconstant:dev'], function () {
+     var baseUri = 'http://localhost:' + conf.paths.apiPort;
+    var proxyRoutes = [
+            '/api', 
+            '/health',
+            '/configprops',
+            '/v2/api-docs',
+            '/swagger-ui',
+            '/configuration/security',
+            '/configuration/ui',
+            '/swagger-resources',
+            '/metrics',
+            '/websocket/tracker',
+            '/dump',
+            '/console/'
+        ];
+
+        var requireTrailingSlash = proxyRoutes.filter(function (r) {
+            return conf.endsWith(r, '/');
+        }).map(function (r) {
+            // Strip trailing slash so we can use the route to match requests
+            // with non trailing slash
+            return r.substr(0, r.length - 1);
+        });
+
+        var proxies = [
+            // Ensure trailing slash in routes that require it
+            function (req, res, next) {
+                requireTrailingSlash.forEach(function(route){
+                    if (url.parse(req.url).path === route) {
+                        res.statusCode = 301;
+                        res.setHeader('Location', route + '/');
+                        res.end();
+                    }
+                });
+
+                next();
+            }
+        ].concat(
+            // Build a list of proxies for routes: [route1_proxy, route2_proxy, ...]
+            proxyRoutes.map(function (r) {
+                var options = url.parse(baseUri + r);
+                options.route = r;
+                return proxy(options);
+            }));
+
+    
+  browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.app],'',proxies);
 });
 
 
-gulp.task('serve:dist', ['build'], function () {
+gulp.task('serve:dist', ['build','ngconstant:prod'], function () {
   browserSyncInit(conf.paths.dist);
 });
 

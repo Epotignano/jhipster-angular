@@ -6,70 +6,20 @@
 </md-toolbar>
 
 <ms-nav ms-scroll="vm.msScrollOptions" class="scrollable">
-
-    <ms-nav-item ms-nav-toggle>
+    
+    <ms-nav-item ms-nav-toggle data-ng-repeat="menuItem in vm.menu">
         <a ms-nav-button md-ink-ripple>
-            <i class="icon-tile-four s16"></i>
-            <span class="ms-nav-label" translate="COMMONS.COURSES"></span>
+            <i class="{{ menuItem.icon }} s16"></i>
+            <span class="ms-nav-label" translate="{{ menuItem.label }}"></span>
             <i class="icon-chevron-down s16 arrow"></i>
         </a>
-
         <ms-nav-toggle-items>
-            <ms-nav-item>
-                <a ms-nav-button ui-sref="app.courses.list" ui-sref-active="active md-orange-bg" md-ink-ripple>
-                    <span class="ms-nav-label" translate="COMMONS.COURSES_LIST"></span>
-                </a>
-            </ms-nav-item>
-            <ms-nav-item>
-                <a ms-nav-button ui-sref="app.courses.create" ui-sref-active="active md-orange-bg" md-ink-ripple>
-                    <span class="ms-nav-label" translate="COMMONS.NEW"></span>
+            <ms-nav-item ng-repeat="subItem in menuItem.items">
+                <a ms-nav-button ui-sref="{{ subItem.sref }}" ui-sref-active="active md-orange-bg" md-ink-ripple>
+                    <span class="ms-nav-label" translate="{{ subItem.label }}"></span>
                 </a>
             </ms-nav-item>
         </ms-nav-toggle-items>
     </ms-nav-item>
-
-
-    <ms-nav-item ms-nav-toggle>
-        <a ms-nav-button md-ink-ripple>
-            <i class="icon-tile-four s16"></i>
-            <span class="ms-nav-label" translate="COMMONS.TEACHERS"></span>
-            <i class="icon-chevron-down s16 arrow"></i>
-        </a>
-
-        <ms-nav-toggle-items>
-            <ms-nav-item>
-                <a ms-nav-button ui-sref="app.teachers.list" ui-sref-active="active md-orange-bg" md-ink-ripple>
-                    <span class="ms-nav-label" translate="COMMONS.LIST"></span>
-                </a>
-            </ms-nav-item>
-            <ms-nav-item>
-                <a ms-nav-button ui-sref="app.teachers.create" ui-sref-active="active md-orange-bg" md-ink-ripple>
-                    <span class="ms-nav-label" translate="COMMONS.NEW"></span>
-                </a>
-            </ms-nav-item>
-        </ms-nav-toggle-items>
-    </ms-nav-item>
-
-    <ms-nav-item ms-nav-toggle>
-        <a ms-nav-button md-ink-ripple>
-            <i class="icon-tile-four s16"></i>
-            <span class="ms-nav-label" translate="COMMONS.STUDENTS"></span>
-            <i class="icon-chevron-down s16 arrow"></i>
-        </a>
-
-        <ms-nav-toggle-items>
-            <ms-nav-item>
-                <a ms-nav-button ui-sref="app.students.list" ui-sref-active="active md-orange-bg" md-ink-ripple>
-                    <span class="ms-nav-label" translate="COMMONS.LIST"></span>
-                </a>
-            </ms-nav-item>
-            <ms-nav-item>
-                <a ms-nav-button ui-sref="app.students.create" ui-sref-active="active md-orange-bg" md-ink-ripple>
-                    <span class="ms-nav-label" translate="COMMONS.NEW"></span>
-                </a>
-            </ms-nav-item>
-        </ms-nav-toggle-items>
-    </ms-nav-item>
-
 
 </ms-nav>
