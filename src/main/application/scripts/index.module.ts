@@ -1,8 +1,9 @@
 /// <reference path="../../.tmp/typings/tsd.d.ts" />
 /// <reference path="./index.routes.ts" />
+/// <reference path="./index.formly.conf.ts" />
 /// <reference path="./index.http.config.ts" />
 
-module Onesnap{
+module Onesnap {
 	'use strict';
 	angular.module('coursesApp', ['app.core',
 	// navigation
@@ -16,4 +17,5 @@ module Onesnap{
 	'dashboard'])
 		.config(RouterConfig)
 		.config(httpConfig)
-}
+		.config(FormlyConfiguration)
+};
