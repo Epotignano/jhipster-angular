@@ -9,7 +9,7 @@
 module Onesnap.Auth {
   'use strict';
 
-  angular.module('auth', [])
+  angular.module('onesnap.auth', [])
     .controller('LoginController', LoginController)
     .service('AuthService', AuthService)
     .config(RouterConfig);

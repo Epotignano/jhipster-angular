@@ -10,11 +10,12 @@ module Onesnap {
 	'app.navigation',
 	// toolbar
 	'app.toolbar', 
-	//template components
+	// template components
 	'app.components',
-	'auth',
-	'settings',
-	'dashboard'])
+	// our modules 
+	'onesnap.auth', 'onesnap.commons',
+	'onesnap.settings', 'onesnap.components',
+	'onesnap.dashboard'])
 		.config(RouterConfig)
 		.config(httpConfig)
 		.config(FormlyConfiguration)

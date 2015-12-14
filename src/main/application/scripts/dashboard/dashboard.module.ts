@@ -6,5 +6,5 @@ module Onesnap.Dashboard {
 
   'use strict';
 
-  angular.module('dashboard', []);
+  angular.module('onesnap.dashboard', []);
 }
